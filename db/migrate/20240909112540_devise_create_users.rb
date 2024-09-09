@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class DeviseCreateUsers < ActiveRecord::Migration[7.1]
-  def change
+class DeviseCreateUsers < ActiveRecord::Migration[7.1] # rubocop:disable Style/Documentation
+  def change # rubocop:disable Metrics/MethodLength
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-      t.string :first_name,         null: false, default: ""
-      t.string :last_name,          null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
+      t.string :first_name,         null: false, default: ''
+      t.string :last_name,          null: false, default: ''
       t.string :role
 
       ## Recoverable
