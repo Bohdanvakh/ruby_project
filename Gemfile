@@ -14,6 +14,11 @@ gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
+# use devise gems for registration and login users
+gem 'devise', '~> 4.9', '>= 4.9.4'
+gem 'devise_token_auth', '~> 1.2', '>= 1.2.3'
+gem 'devise_invitable', '~> 2.0', '>= 2.0.9'
+
 # Use rubocop for better style guide
 gem 'rubocop-rails', '~> 2.26'
 
