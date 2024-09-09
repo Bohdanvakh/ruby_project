@@ -14,6 +14,9 @@ gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
+# Use rubocop for better style guide
+gem 'rubocop-rails', '~> 2.26'
+
 # Use Pry for debug
 gem 'pry', '~> 0.14.2'
 
