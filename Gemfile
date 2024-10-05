@@ -30,6 +30,9 @@ gem 'pry', '~> 0.14.2'
 # Use rubocop for improving code design
 gem 'rubocop', '~> 1.65', '>= 1.65.1'
 
+# Use jbuilder for providing specific data to json files
+gem 'jbuilder', '~> 2.7'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
