@@ -13,6 +13,37 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+
+    if @user
+      render 'api/v1/users/show', status: :ok
+    else
+      render json: {status: :not_found,
+                    code: 404,
+                    message: "The user with this id doesn't exist so please check again."}, status: :not_found
+    end
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+
+    if @user
+      if @user.update(user_params)
+        render json: @user, status: :ok
+      else
+        render json: {status: :unprocessable_entity,
+                    code: 422,
+                    errors: @user.errors.full_messages,
+                    message: "The error occurs when we try to update the user."}, status: :unprocessable_entity
+      end
+    else
+      render json: {status: :not_found,
+                    code: 404,
+                    message: "The user with this id doesn't exist so please check again."}, status: :not_found
+    end
+  end
+
   private
 
   def user_params
