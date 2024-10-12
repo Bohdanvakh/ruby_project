@@ -14,7 +14,8 @@ RSpec.describe 'Users', type: :request do # rubocop:disable Metrics/BlockLength
         'id' => user.id,
         'email' => user.email,
         'first_name' => user.first_name,
-        'last_name' => user.last_name
+        'last_name' => user.last_name,
+        'role' => user.role
       }
 
       expect(response).to have_http_status(:success)
