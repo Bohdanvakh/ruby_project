@@ -117,4 +117,35 @@ RSpec.describe 'Users', type: :request do # rubocop:disable Metrics/BlockLength
       expect(json_response).to eq(expected_attributes)
     end
   end
+
+  #destroy
+  describe 'DELETE /api/v1/users/:id' do
+    it 'returns a successful response' do
+      delete "/api/v1/users/#{user.id}"
+
+      json_response = JSON.parse(response.body)
+      expected_attributes = {
+        'status' => 'ok',
+        'code' => 200,
+        'message' => "The user was deleted successfully."
+      }
+
+      expect(response).to have_http_status(:ok)
+      expect(json_response).to eq(expected_attributes)
+    end
+
+    it 'returns 404 response' do
+      delete '/api/v1/users/1234567890'
+
+      json_response = JSON.parse(response.body)
+      expected_attributes = {
+        'status' => 'not_found',
+        'code' => 404,
+        'message' => "The user with this id doesn't exist so please check again."
+      }
+
+      expect(response).to have_http_status(:not_found)
+      expect(json_response).to eq(expected_attributes)
+    end
+  end
 end

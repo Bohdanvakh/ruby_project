@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         post 'sign_in', to: 'sessions#create'
       end
 
-      resources :users, only: %i[index create show update]
+      resources :users, only: %i[index create show update destroy]
     end
   end
 end

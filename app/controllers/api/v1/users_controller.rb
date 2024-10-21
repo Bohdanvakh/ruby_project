@@ -48,6 +48,22 @@ module Api
         end
       end
 
+      def destroy
+        @user = User.find_by(id: params[:id])
+
+        if @user
+          @user.destroy
+          render json: {
+                          status: :ok,
+                          code: 200,
+                          message: 'The user was deleted successfully.' }, status: :ok
+        else
+          render json: { status: :not_found,
+                         code: 404,
+                         message: "The user with this id doesn't exist so please check again." }, status: :not_found
+        end
+      end
+
       private
 
       def user_params
